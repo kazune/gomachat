@@ -105,8 +105,27 @@
 
 <ul class="ul5ma">
 
-<li>
+<ui:repeat value="#{gomaChatData.itemList}" var="item">
 
+<li>
+ 
+
+<table border="0" class="table5ma">
+<tbody>
+<tr><td rowspan="2" class="parsonalimg"><img src="#{item.iconPath}" width="50" /></td>
+<th><h:outputText value="#{item.userName}" /></th><td>11/05 22:28:57</td>
+</tr>
+<tr><td colspan="2">いつか、鳥になりたい・・・・</td>
+</tr>
+
+</tbody>
+</table>
+</li>
+
+</ui:repeat>
+
+
+<li>
 <table border="0" class="table5ma">
 <tbody>
 <tr><td rowspan="2" class="parsonalimg"><img src="http://www.yuyushiki.net/core_sys/images/main/cont/chara/chara_navi3c.gif" width="50" /></td><th>原村さん</th><td>11/05 22:28:57</td>
