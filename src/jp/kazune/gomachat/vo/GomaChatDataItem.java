@@ -24,7 +24,7 @@ public class GomaChatDataItem {
 	}
 
 	public String getChatDateText() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		return sdf.format(chatDate);
 	}
 
@@ -57,12 +57,12 @@ public class GomaChatDataItem {
 	}
 
 	public void submit() {
-		GomaChatDataItem newItem=new GomaChatDataItem();
+		GomaChatDataItem newItem = new GomaChatDataItem();
 		newItem.setIconPath(getIconPath());
 		newItem.setUserName(getUserName());
 		newItem.setChatText(getChatText());
-		newItem.setChatDate(getChatDate());
+		newItem.setChatDate(new Date());
 		GomaChatData.getStaticItemList().add(0, newItem);
-		
+
 	}
 }
