@@ -105,7 +105,9 @@
 
 
 <textarea cols="30" rows="3" name="example3" />
+<h:inputTextarea id="newChatTextarea" value="#{gomaChatDataItem.chatText}" cols="30" rows="3" />
 <input type="submit" value="送信する" />
+<h:commandButton actionListener="#{gomaChatDataItem.submit()}"  value="そうしんする" title="そうしんする"  />
 <ul class="ul5ma">
 
 <!-- チャットのデータ一覧を持ってきて、くるくると繰り返してデータを読み込む  -->

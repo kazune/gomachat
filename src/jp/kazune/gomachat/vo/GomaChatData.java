@@ -14,7 +14,11 @@ public class GomaChatData {
 	/**
 	 * チャットのデータの一覧
 	 */
-	protected List<GomaChatDataItem> itemList = new ArrayList<GomaChatDataItem>();
+	protected static final List<GomaChatDataItem> itemList = new ArrayList<GomaChatDataItem>();
+
+	public static List<GomaChatDataItem> getStaticItemList() {
+		return itemList;
+	}
 
 	/**
 	 * チャットのデータ一覧をゲットする。

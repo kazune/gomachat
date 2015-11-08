@@ -3,6 +3,13 @@ package jp.kazune.gomachat.vo;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.inject.Named;
+
+@ManagedBean
+@SessionScoped
+@Named
 public class GomaChatDataItem {
 	protected String iconPath = "http://www.yuyushiki.net/core_sys/images/main/cont/chara/chara_navi2.gif";
 
@@ -47,5 +54,15 @@ public class GomaChatDataItem {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public void submit() {
+		GomaChatDataItem newItem=new GomaChatDataItem();
+		newItem.setIconPath(getIconPath());
+		newItem.setUserName(getUserName());
+		newItem.setChatText(getChatText());
+		newItem.setChatDate(getChatDate());
+		GomaChatData.getStaticItemList().add(0, newItem);
+		
 	}
 }
