@@ -105,23 +105,26 @@
 
 <ul class="ul5ma">
 
+<!-- チャットのデータ一覧を持ってきて、くるくると繰り返してデータを読み込む  -->
 <ui:repeat value="#{gomaChatData.itemList}" var="item">
 
 <li>
- 
-
 <table border="0" class="table5ma">
 <tbody>
+<!-- Javaから画像パスをゲット  -->
 <tr><td rowspan="2" class="parsonalimg"><img src="#{item.iconPath}" width="50" /></td>
+<!-- Javaからユーザ名をゲット  -->
 <th><h:outputText value="#{item.userName}" /></th><td>11/05 22:28:57</td>
 </tr>
-<tr><td colspan="2">いつか、鳥になりたい・・・・</td>
+<!-- Javaからチャットのテキストをゲット  -->
+<tr><td colspan="2"><h:outputText value="#{item.chatText}" /></td>
 </tr>
 
 </tbody>
 </table>
 </li>
 
+<!-- 繰り返しおわり  -->
 </ui:repeat>
 
 

@@ -5,7 +5,15 @@ public class GomaChatDataItem {
 
 	protected String userName = "haramura";
 
-	protected String chatText = "いつか、鳥になりたい・・・・";
+	protected String chatText = "いつか、鳥になりたい・・・・unk";
+
+	public String getChatText() {
+		return chatText;
+	}
+
+	public void setChatText(String chatText) {
+		this.chatText = chatText;
+	}
 
 	public String getIconPath() {
 		return iconPath;
