@@ -15,7 +15,7 @@ public class GomaChatDataItem {
 
 	protected String userName = "haramura";
 
-	protected String chatText = "いつか、鳥になりたい・・・・unk";
+	protected String chatText = null;
 
 	protected Date chatDate = new Date();
 
@@ -64,5 +64,6 @@ public class GomaChatDataItem {
 		newItem.setChatDate(new Date());
 		GomaChatData.getStaticItemList().add(0, newItem);
 
+		setChatText(null);
 	}
 }
