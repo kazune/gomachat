@@ -15,7 +15,7 @@
 </h:head>
 
  <h:body>
- <h:form id="XXXXXXXXForm">
+ <h:form id="indexForm">
  <p>hello world.</p>
  
  <div class="container-fluid">
@@ -54,8 +54,6 @@
 <button type="button" class="btn btn-default btn-lg">
   <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
 </button>
-
-
 
 <ul>
 
@@ -104,12 +102,24 @@
 </style>
 
 
-<h:inputTextarea id="newChatTextarea" value="#{gomaChatDataItem.chatText}" cols="30" rows="3" />
-<h:commandButton actionListener="#{gomaChatDataItem.submit()}"  value="そうしんする" title="そうしんする"  />
+<h:inputTextarea id="newChatTextarea" value="#{gomaChatDataItem.chatText}" cols="30" rows="3" onkeypress="if (event.keyCode == 13) {e.preventDefault();inputEnter.onchange(); return false; }" >
+<!--          <f:ajax event="change"
+                execute="@form" listener="#{gomaChatDataItem.submit()}" update="chatDataList" />
+                 -->
+</h:inputTextarea>
+
+
+
+<h:commandButton  value="そうしんする" title="そうしんする"  >
+  <f:ajax listener="#{gomaChatDataItem.submit()}" execute="@form" render="panelList newChatTextarea" />
+   
+</h:commandButton>
 <ul class="ul5ma">
 
+<h:panelGroup id="panelList">
+
 <!-- チャットのデータ一覧を持ってきて、くるくると繰り返してデータを読み込む  -->
-<ui:repeat value="#{gomaChatData.itemList}" var="item">
+<ui:repeat id="chatDataList" value="#{gomaChatData.itemList}" var="item">
 
 <li>
 <table border="0" class="table5ma">
@@ -131,6 +141,7 @@
 <!-- 繰り返しおわり  -->
 </ui:repeat>
 
+</h:panelGroup>
 
 <li>
 <table border="0" class="table5ma">

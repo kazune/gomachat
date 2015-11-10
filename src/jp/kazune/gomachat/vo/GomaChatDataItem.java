@@ -56,7 +56,12 @@ public class GomaChatDataItem {
 		this.userName = userName;
 	}
 
-	public void submit() {
+	public synchronized void submit() {
+		if (getChatText() == null || getChatText().length() == 0) {
+			// 文字入っていなかったら何もしない。
+			return;
+		}
+
 		GomaChatDataItem newItem = new GomaChatDataItem();
 		newItem.setIconPath(getIconPath());
 		newItem.setUserName(getUserName());
